@@ -1,3 +1,13 @@
+// ==UserScript==
+// @name         绿色纯净版CSDN-持续更新
+// @namespace    CSDNGreen
+// @version      0.0.1
+// @description  绿色纯净版CSDN-持续更新,现仅支持🔥免登录复制
+// @author       LiuHangShu
+// @include      *://*.csdn.net/*
+// @license      AGPL-3.0-or-later
+// ==/UserScript==
+
 const version = "0.0.1";
 
 function Copy() {
@@ -35,4 +45,6 @@ function Copy() {
   }
 }
 
-Copy();
+setInterval(() => {
+  Copy();
+}, 1000);
