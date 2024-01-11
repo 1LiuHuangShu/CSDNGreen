@@ -59,3 +59,4 @@ function main() {
     fullScreen();
   }, 1000);
 }
+main();
