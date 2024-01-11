@@ -1,16 +1,15 @@
 // ==UserScript==
 // @name         绿色纯净版CSDN-持续更新
 // @namespace    CSDNGreen
-// @version      0.0.5
+// @version      0.0.51
 // @description  绿色纯净版CSDN-持续更新,现仅支持🔥免登录复制
 // @author       LiuHangShu
 // @include      *://*.csdn.net/*
 // @license      AGPL-3.0-or-later
-// @require      https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js
-// @note         24-1-11 0.0.5 全屏模式
+// @note         24-1-11 0.0.51 jq-err
 // ==/UserScript==
 
-const version = "0.0.5";
+const version = "0.0.51";
 
 function copy() {
   try {
@@ -18,7 +17,6 @@ function copy() {
       console.log("jQuery is not loaded");
       return;
     }
-    $("code").attr("onclick", "mdcp.copyCode(event)");
     // 免登录复制
     $(".hljs-button").removeClass("signin");
     $(".hljs-button").addClass("{2}");
@@ -40,10 +38,12 @@ function copy() {
     try {
       unsafeWindow.csdn.copyright.init("", "", "");
     } catch (_err) {}
+    console.log("copy fn run success");
   } catch (err) {
     $$("*").forEach((item) => {
       item.oncopy = (e) => e.stopPropagation();
     });
+    console.log("copy fn run error");
   }
 }
 
@@ -51,12 +51,12 @@ function fullScreen() {
   $(".blog_container_aside").remove();
   $("main").css("width", "100%");
   $(".csdn-side-toolbar").remove();
+  console.log("fullScreen fn run success");
 }
 
 function main() {
-  setInterval(() => {
-    copy();
-    fullScreen();
-  }, 1000);
+  copy();
+  fullScreen();
+  console.log("正在运行");
 }
 main();
