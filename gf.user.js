@@ -1,16 +1,16 @@
 // ==UserScript==
 // @name         绿色纯净版CSDN-持续更新
 // @namespace    CSDNGreen
-// @version      0.0.4
+// @version      0.0.5
 // @description  绿色纯净版CSDN-持续更新,现仅支持🔥免登录复制
 // @author       LiuHangShu
 // @include      *://*.csdn.net/*
 // @license      AGPL-3.0-or-later
 // @require      https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js
-// @note         24-1-11 0.0.4 全屏模式
+// @note         24-1-11 0.0.5 全屏模式
 // ==/UserScript==
 
-const version = "0.0.4";
+const version = "0.0.5";
 
 function copy() {
   try {
