@@ -1,19 +1,20 @@
 // ==UserScript==
 // @name         绿色纯净版CSDN-持续更新
 // @namespace    CSDNGreen
-// @version      0.0.1
+// @version      0.0.3
 // @description  绿色纯净版CSDN-持续更新,现仅支持🔥免登录复制
 // @author       LiuHangShu
 // @include      *://*.csdn.net/*
 // @license      AGPL-3.0-or-later
+// @note         24-1-11 0.0.3 全屏模式
 // ==/UserScript==
 
-const version = "0.0.1";
+const version = "0.0.3";
 
-function Copy() {
+function copy() {
   try {
     if (typeof $ == "undefined") {
-      alert("jQuery is not loaded");
+      console.log("jQuery is not loaded");
       return;
     }
     $("code").attr("onclick", "mdcp.copyCode(event)");
@@ -45,6 +46,13 @@ function Copy() {
   }
 }
 
-setInterval(() => {
-  Copy();
-}, 1000);
+function fullScreen() {
+  $(".blog_container_aside").remove();
+  $("main").css("width", "100%");
+  $(".csdn-side-toolbar").remove();
+}
+
+function main() {
+  copy();
+  fullScreen();
+}
