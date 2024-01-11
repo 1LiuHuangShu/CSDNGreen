@@ -7,7 +7,7 @@
 // @include      *://*.csdn.net/*
 // @license      AGPL-3.0-or-later
 // @require      https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js
-// @note         24-1-11 0.0.3 全屏模式
+// @note         24-1-11 0.0.4 全屏模式
 // ==/UserScript==
 
 const version = "0.0.3";
@@ -54,6 +54,8 @@ function fullScreen() {
 }
 
 function main() {
-  copy();
-  fullScreen();
+  setInterval(() => {
+    copy();
+    fullScreen();
+  }, 1000);
 }
