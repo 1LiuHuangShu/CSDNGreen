@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         绿色纯净版CSDN-持续更新
 // @namespace    CSDNGreen
-// @version      0.0.3
+// @version      0.0.4
 // @description  绿色纯净版CSDN-持续更新,现仅支持🔥免登录复制
 // @author       LiuHangShu
 // @include      *://*.csdn.net/*
@@ -10,7 +10,7 @@
 // @note         24-1-11 0.0.4 全屏模式
 // ==/UserScript==
 
-const version = "0.0.3";
+const version = "0.0.4";
 
 function copy() {
   try {
