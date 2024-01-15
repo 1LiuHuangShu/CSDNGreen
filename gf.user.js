@@ -1,15 +1,16 @@
 // ==UserScript==
 // @name         绿色纯净版CSDN-持续更新
 // @namespace    CSDNGreen
-// @version      0.0.51
-// @description  绿色纯净版CSDN-持续更新,现仅支持🔥免登录复制
+// @version      0.0.52
+// @description  绿色纯净版CSDN-持续更新,现支持🔥免登录复制🔥沉浸式阅读
 // @author       LiuHangShu
 // @include      *://*.csdn.net/*
 // @license      AGPL-3.0-or-later
 // @note         24-1-11 0.0.51 jq-err
+// @note         24-1-15 0.0.52 沉浸式阅读
 // ==/UserScript==
 
-const version = "0.0.51";
+const version = " 0.0.52";
 
 function copy() {
   try {
@@ -54,9 +55,52 @@ function fullScreen() {
   console.log("fullScreen fn run success");
 }
 
+function remove() {
+  // 登录
+  const loginModal = $(".passport-login-container");
+  // 红包
+  const redpackModal = $("#csdn-redpack");
+  const iframe = $("iframe");
+  const toolBarBox = $(".more-toolbox-new");
+  const blogHuaweiyunAdvert = $("#blogHuaweiyunAdvert");
+  const blogColumnPayAdvert = $("#blogColumnPayAdvert");
+  const recommendNps = $("#recommendNps");
+  const recommendBox = $(".recommend-box");
+  const articleInfoBox = $(".article-info-box");
+  const adverts1 = $(".J_adv");
+  const adverts2 = $(".feed-fix-box");
+
+  const elements = [
+    loginModal,
+    redpackModal,
+    iframe,
+    toolBarBox,
+    blogHuaweiyunAdvert,
+    blogColumnPayAdvert,
+    adverts1,
+    adverts2,
+    recommendNps,
+    recommendBox,
+    articleInfoBox,
+  ];
+
+  let timer = setInterval(function () {
+    const clear = elements.every((item) => !item.length);
+    if (clear) {
+      clearInterval(timer);
+    }
+    elements.forEach((item) => {
+      item && item.remove();
+    });
+  }, 500);
+}
+
+// #mainBox #csdn-copyright-footer
+
 function main() {
   copy();
   fullScreen();
+  remove();
   console.log("正在运行");
 }
 main();
